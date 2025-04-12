@@ -2146,7 +2146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverText: {fileID: 1490791975}
-  itemDescription: Hard as a Rock after heating - Subject 77
+  itemDescription: 'Hard as a Rock after heating
+
+    -Subject 77'
   itemPrefab: {fileID: 3942630534300753597, guid: 69feef8d0661c8b4aa4c580188aa32a6, type: 3}
 --- !u!61 &722529676
 BoxCollider2D:
@@ -5789,7 +5791,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverText: {fileID: 1490791975}
-  itemDescription: Apparently I got stronger after eating this - Subject 28
+  itemDescription: 'Apparently I got stronger after eating this
+
+    -Subject 28'
   itemPrefab: {fileID: 2756070859016664429, guid: 9476c7b71a8a6ac4c825249321ba1d91, type: 3}
 --- !u!61 &1828676963
 BoxCollider2D:

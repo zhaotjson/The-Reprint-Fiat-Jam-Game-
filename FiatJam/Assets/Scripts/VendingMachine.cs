@@ -23,7 +23,19 @@ public class VendingMachine : Interactable
         Debug.Log("*beep* *beep* *beep*");
         if (vendingMachineCanvas != null)
         {
-            vendingMachineCanvas.SetActive(!vendingMachineCanvas.activeSelf);
+            vendingMachineCanvas.SetActive(true);
+
+
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            if (playerObject != null)
+            {
+                Player player = playerObject.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.SetMovementEnabled(false);
+                }
+            }
+
         }
 
 
@@ -35,6 +47,17 @@ public class VendingMachine : Interactable
         if (vendingMachineCanvas != null)
         {
             vendingMachineCanvas.SetActive(false);
+
+
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            if (playerObject != null)
+            {
+                Player player = playerObject.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.SetMovementEnabled(true);
+                }
+            }
         }
     }
 }

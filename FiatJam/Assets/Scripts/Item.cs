@@ -8,6 +8,8 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField] private TMP_Text hoverText;
+
+    [TextArea]
     [SerializeField] private string itemDescription;
 
     [SerializeField] private GameObject itemPrefab;

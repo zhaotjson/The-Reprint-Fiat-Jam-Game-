@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private Camera cam;
     private float camWidth;
 
+    private bool canMove = true;
+
 
     public List<GameObject> inventory = new List<GameObject>();
     public int maxInventorySize = 5;
@@ -31,6 +33,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Movement
+
+        if (!canMove) return;
+
+
 
         if (IsGrounded()) {
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
@@ -77,5 +83,12 @@ public class Player : MonoBehaviour
             Debug.Log("Inventory is full");
             return false;
         }
+    }
+
+
+    public void SetMovementEnabled(bool enabled)
+    {
+        canMove = enabled;
+
     }
 }
