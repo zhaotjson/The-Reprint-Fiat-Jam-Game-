@@ -29,7 +29,6 @@ public class Interactable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player entered the trigger");
             isInteractable = true;
             EIndicator.enabled = true;
         }       
@@ -39,7 +38,6 @@ public class Interactable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player exited the trigger");
             isInteractable = false;
             EIndicator.enabled = false;
         }
