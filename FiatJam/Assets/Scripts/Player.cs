@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
@@ -11,6 +12,10 @@ public class Player : MonoBehaviour
 
     private Camera cam;
     private float camWidth;
+
+
+    private List<GameObject> inventory = new List<GameObject>();
+    private int maxInventorySize = 5;
 
     // Start is called before the first frame update
     void Start()
