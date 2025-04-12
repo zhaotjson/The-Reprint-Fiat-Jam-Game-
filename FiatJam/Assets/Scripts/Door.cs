@@ -30,18 +30,20 @@ public class Door : Interactable
     }
 
     IEnumerator Teleport() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Vector3 playerPos = player.transform.position;
         playerPos.x = doorTo.transform.position.x;
         playerPos.y = doorTo.transform.position.y;
         player.transform.position = playerPos;
 
-        Vector3 camPos = Camera.main.transform.position;
-        camPos.x = doorTo.centerCamera.transform.position.x;
-        camPos.y = doorTo.centerCamera.transform.position.y;
-        Camera.main.transform.position = camPos;
-        yield return new WaitForSeconds(0.5f);
+        if (centerCamera != null) {
+            Vector3 camPos = Camera.main.transform.position;
+            camPos.x = doorTo.centerCamera.transform.position.x;
+            camPos.y = doorTo.centerCamera.transform.position.y;
+            Camera.main.transform.position = camPos;
+        }
+        yield return new WaitForSeconds(0.25f);
         doorTo.Close();
     }
 }
