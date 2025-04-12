@@ -7,28 +7,49 @@ public class Player : MonoBehaviour
     public float speed = 5f;
 
     private Rigidbody2D rb;
-    private SpriteRenderer renderer;
+    private SpriteRenderer sprite;
+
+    private Camera cam;
+    private float camWidth;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();    
-        renderer = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
+        cam = Camera.main;
+        camWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Movement
+
         if (IsGrounded()) {
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
                 rb.AddForce(new Vector2(-1, 1) * speed, ForceMode2D.Impulse);
-                renderer.flipX = true;
+                sprite.flipX = true;
             }
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
                 rb.AddForce(new Vector2(1, 1) * speed, ForceMode2D.Impulse);
-                renderer.flipX = false;
+                sprite.flipX = false;
             }
         }
+
+        // Camera Follow
+
+        Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
+        Vector3 camPos = cam.transform.position;
+
+        if (viewPos.x < 0)
+            camPos.x -= camWidth;
+        else if (viewPos.x > 1)
+            camPos.x += camWidth;
+
+        cam.transform.position = camPos;
+    
     }
 
     bool IsGrounded()
