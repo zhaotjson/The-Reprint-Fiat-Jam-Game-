@@ -45,10 +45,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Movement
 
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (!inventoryOpen)
             {
@@ -59,6 +58,9 @@ public class Player : MonoBehaviour
                 CloseInventory();
             }
         }
+
+
+        // Movement
 
         if (!canMove) return;
 

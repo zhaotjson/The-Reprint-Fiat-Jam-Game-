@@ -55,6 +55,7 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     if (added)
                     {
                         Debug.Log("Item added to inventory.");
+                        hoverText.text = string.Empty;
                         DestroyImmediate(gameObject, true);
                     }
                     else
