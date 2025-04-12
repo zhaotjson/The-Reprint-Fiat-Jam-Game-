@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Player : MonoBehaviour
@@ -23,6 +24,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject inventoryCanvas;
 
+    [SerializeField] private List<GameObject> inventorySlots;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +48,7 @@ public class Player : MonoBehaviour
         // Movement
 
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             if (!inventoryOpen)
             {
@@ -124,6 +128,7 @@ public class Player : MonoBehaviour
             inventoryCanvas.SetActive(true);
             canMove = false;
             Debug.Log("Inventory opened");
+            UpdateInventoryUI();
             inventoryOpen = true;
         }
 
@@ -140,4 +145,50 @@ public class Player : MonoBehaviour
             inventoryOpen = false;
         }
     }
+
+
+
+
+
+
+    public void UpdateInventoryUI()
+    {
+        for (int i = 0; i < inventorySlots.Count; i++)
+        {
+            Image slotImage = inventorySlots[i].GetComponent<Image>();
+            if (slotImage != null)
+            {
+                slotImage.sprite = null;
+                slotImage.color = new Color(1, 1, 1, 0);
+            }
+        }
+
+
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (i < inventorySlots.Count)
+            {
+                Image slotImage = inventorySlots[i].GetComponent<Image>();
+                if (slotImage != null)
+                {
+                    SpriteRenderer itemSprite = inventory[i].GetComponent<SpriteRenderer>();
+
+                    if (itemSprite != null)
+                    {
+                        slotImage.sprite = itemSprite.sprite;
+                        slotImage.color = new Color(1, 1, 1, 1);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Item does not have a SpriteRenderer component: " + inventory[i].name);
+                    }
+                }
+
+            }
+        }
+
+    }
+
+
+
 }
