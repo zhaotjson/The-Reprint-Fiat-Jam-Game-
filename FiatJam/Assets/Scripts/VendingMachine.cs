@@ -7,15 +7,34 @@ public class VendingMachine : Interactable
 
     [SerializeField] private GameObject vendingMachineCanvas;
 
+    public int numCarrots = 0;
+
+    [SerializeField] private List<GameObject> carrotPrefabs = new List<GameObject>();
+
+
+
 
     protected override void Start()
     {
+
         base.Start();
+
+        numCarrots = Random.Range(0, 10);
 
         if (vendingMachineCanvas != null)
         {
             vendingMachineCanvas.SetActive(false);
         }
+
+        for (int i = 0; i < carrotPrefabs.Count; i++)
+        {
+            carrotPrefabs[i].SetActive(false);
+        }
+
+
+
+        DisplayCarrots();
+
     }
 
     public override void Interact()
@@ -58,6 +77,18 @@ public class VendingMachine : Interactable
                     player.SetMovementEnabled(true);
                 }
             }
+        }
+    }
+
+
+    public void DisplayCarrots()
+    {
+        for (int i = 0; i < numCarrots; i++)
+        {
+            carrotPrefabs[i].SetActive(true);
+
+
+
         }
     }
 }

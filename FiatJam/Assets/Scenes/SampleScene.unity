@@ -6588,6 +6588,17 @@ MonoBehaviour:
   EIndicator: {fileID: 1320878584}
   isInteractable: 0
   vendingMachineCanvas: {fileID: 2140314013}
+  numCarrots: 0
+  carrotPrefabs:
+  - {fileID: 910279454}
+  - {fileID: 499607714}
+  - {fileID: 784802412}
+  - {fileID: 1652413603}
+  - {fileID: 1684407526}
+  - {fileID: 1050029087}
+  - {fileID: 2124327399}
+  - {fileID: 1924446866}
+  - {fileID: 690462432}
 --- !u!1 &1906737283
 GameObject:
   m_ObjectHideFlags: 0
