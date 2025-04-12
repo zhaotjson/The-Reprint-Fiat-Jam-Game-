@@ -13,11 +13,15 @@ public class Player : MonoBehaviour
     private Camera cam;
     private float camWidth;
 
+    private bool inventoryOpen = false;
+
     private bool canMove = true;
 
 
     public List<GameObject> inventory = new List<GameObject>();
     public int maxInventorySize = 5;
+
+    [SerializeField] private GameObject inventoryCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,11 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         cam = Camera.main;
         camWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
+        if (inventoryCanvas != null)
+        {
+            inventoryCanvas.SetActive(false);
+        }
+
 
     }
 
@@ -33,6 +42,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Movement
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (!inventoryOpen)
+            {
+                OpenInventory();
+            }
+            else
+            {
+                CloseInventory();
+            }
+        }
 
         if (!canMove) return;
 
@@ -48,6 +70,7 @@ public class Player : MonoBehaviour
                 sprite.flipX = false;
             }
         }
+
 
         // Camera Follow
 
@@ -90,5 +113,31 @@ public class Player : MonoBehaviour
     {
         canMove = enabled;
 
+    }
+
+
+    public void OpenInventory()
+    {
+
+        if (inventoryCanvas != null)
+        {
+            inventoryCanvas.SetActive(true);
+            canMove = false;
+            Debug.Log("Inventory opened");
+            inventoryOpen = true;
+        }
+
+
+    }
+
+    public void CloseInventory()
+    {
+        if (inventoryCanvas != null)
+        {
+            inventoryCanvas.SetActive(false);
+            canMove = true;
+            Debug.Log("Inventory closed");
+            inventoryOpen = false;
+        }
     }
 }
