@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     private float camWidth;
 
 
-    private List<GameObject> inventory = new List<GameObject>();
-    private int maxInventorySize = 5;
+    public List<GameObject> inventory = new List<GameObject>();
+    public int maxInventorySize = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -60,5 +60,22 @@ public class Player : MonoBehaviour
     bool IsGrounded()
     {
         return rb.velocity.y == 0;
+    }
+
+
+
+    public bool AddToInventory(GameObject item)
+    {
+        if (inventory.Count < maxInventorySize)
+        {
+            inventory.Add(item);
+            Debug.Log("Item added to inventory: " + item.name);
+            return true;
+        }
+        else
+        {
+            Debug.Log("Inventory is full");
+            return false;
+        }
     }
 }
