@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public Renderer EIndicator;
-    public bool isInteractable = true;
+    public bool isInteractable = false;
 
     protected virtual void Start()
     {
