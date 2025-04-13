@@ -65,7 +65,12 @@ public class Player : MonoBehaviour, IResettable
     void Update()
     {
 
+        /*
 
+            TESTING PURPOSES, REMOVE LATER
+
+
+        */
         if (Input.GetKeyDown(KeyCode.R))
         {
 
