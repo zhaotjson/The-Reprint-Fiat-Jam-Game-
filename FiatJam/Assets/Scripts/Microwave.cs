@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class Microwave : Interactable, IResettable
 {
@@ -20,8 +21,16 @@ public class Microwave : Interactable, IResettable
 
     [SerializeField] private GameObject microwaveItemPrefab;
 
+    [SerializeField] private GameObject hotBurgerPrefab;
+    [SerializeField] private GameObject hardNoodlesPrefab;
+
     private Vector3 originalPrefabPosition;
 
+    public bool isCooking = false;
+    public float cookingTime = 60f;
+    public float remainingTime = 0f;
+
+    [SerializeField] private TMP_Text timerText;
 
 
 
@@ -67,6 +76,11 @@ public class Microwave : Interactable, IResettable
                 originalPrefabPosition = prefabRectTransform.localPosition;
                 Debug.Log($"Original prefab position saved: {originalPrefabPosition}");
             }
+        }
+
+        if (timerText != null)
+        {
+            timerText.text = "";
         }
 
 
@@ -221,29 +235,27 @@ public class Microwave : Interactable, IResettable
 
     public override void Interact()
     {
-        Debug.Log("*beep* *beep* *beep*");
+
 
         if (microwaveCanvas != null)
         {
             microwaveCanvas.SetActive(true);
 
-            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-
-            if (playerObject != null)
-            {
-                Player player = playerObject.GetComponent<Player>();
-                if (player != null)
-                {
-                    player.SetMovementEnabled(false);
-
-
-                    UpdateInventoryDisplay(player);
-                }
-            }
-
- 
-            UpdateMicrowaveDisplay();
         }
+
+
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            Player player = playerObject.GetComponent<Player>();
+            if (player != null)
+            {
+                player.SetMovementEnabled(false);
+                UpdateInventoryDisplay(player);
+            }
+        }
+
+        UpdateMicrowaveDisplay();
     }
 
     private void UpdateMicrowaveDisplay()
@@ -331,11 +343,101 @@ public class Microwave : Interactable, IResettable
         }
     }
 
+
+
+
+    public void StartCooking()
+    {
+
+        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+        if (microwaveItem == null)
+        {
+
+
+            if (dialogueManager != null)
+            {
+                dialogueManager.ShowDialogue("Hmmm, nothing to cook here");
+            }
+            return;
+        }
+
+        if (isCooking)
+        {
+            Debug.Log("Microwave is already cooking.");
+            return;
+        }
+
+        Debug.Log("Microwave started cooking.");
+        if (dialogueManager != null)
+        {
+            dialogueManager.ShowDialogue("I don't think this will finish in time. Maybe the next person can use it.");
+        }
+        isCooking = true;
+        StartCoroutine(CookingTimer());
+    }
+
+    private IEnumerator CookingTimer()
+    {
+        float remainingTime = cookingTime;
+
+        while (remainingTime > 0)
+        {
+            remainingTime -= Time.deltaTime;
+
+            if (timerText != null)
+            {
+                timerText.text = $"{Mathf.CeilToInt(remainingTime)}";
+            }
+
+            yield return null; // Wait for the next frame
+        }
+
+        FinishCooking();
+    }
+
+    private void FinishCooking()
+    {
+        Debug.Log("Microwave finished cooking.");
+        isCooking = false;
+
+        if (timerText != null)
+        {
+            timerText.text = "";
+        }
+
+        if (microwaveItem != null && microwaveItem.name == "coldBurger" && hotBurgerPrefab != null)
+        {
+            Debug.Log("Replacing coldBurger with hotBurger.");
+            microwaveItem = Instantiate(hotBurgerPrefab);
+        }
+        else if (microwaveItem != null && microwaveItem.name == "coldNoodles" && hardNoodlesPrefab != null)
+        {
+            Debug.Log("Replacing coldNoodles with hardNoodles.");
+            microwaveItem = Instantiate(hardNoodlesPrefab);
+        }
+
+        UpdateMicrowaveDisplay();
+    }
+
+
+
+
     public void ResetObject()
     {
-        // Close the microwave canvas
         CloseCanvas();
 
-        Debug.Log("Microwave reset: canvas closed.");
+        if (isCooking)
+        {
+            Debug.Log("Microwave was cooking during reset. Finishing cooking process.");
+            FinishCooking();
+        }
+
+        isCooking = false;
+        remainingTime = 0f;
+
+        if (timerText != null)
+        {
+            timerText.text = "";
+        }
     }
 }
