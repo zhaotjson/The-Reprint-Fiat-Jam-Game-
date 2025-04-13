@@ -52,9 +52,9 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IR
         if(playerObject != null){
 
             Player player = playerObject.GetComponent<Player>();
-            if (player != null)
+            if (player != null  && player.inventory != null)
             {
-                GameObject money = player.inventory.Find(item => item.name == "money");
+                GameObject money = player.inventory.Find(item => item != null && item.name == "money");
 
                 if (money != null)
                 {
@@ -66,8 +66,8 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IR
                         Debug.Log("Item added to inventory.");
                         hoverText.text = string.Empty;
 
-                        isCollected = true; // Mark the item as collected
-                        gameObject.SetActive(false); // Hide the item instead of destroying it
+                        isCollected = true;
+                        gameObject.SetActive(false);
                     }
                     else
                     {
