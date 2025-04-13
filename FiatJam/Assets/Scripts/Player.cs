@@ -167,25 +167,32 @@ public class Player : MonoBehaviour, IResettable
 
 
 
-
     public void UpdateInventoryUI()
     {
         for (int i = 0; i < inventorySlots.Count; i++)
         {
             Image slotImage = inventorySlots[i].GetComponent<Image>();
+            Button slotButton = inventorySlots[i].GetComponent<Button>();
+
             if (slotImage != null)
             {
                 slotImage.sprite = null;
                 slotImage.color = new Color(1, 1, 1, 0);
             }
-        }
 
+            if (slotButton != null)
+            {
+                slotButton.onClick.RemoveAllListeners();
+            }
+        }
 
         for (int i = 0; i < inventory.Count; i++)
         {
-            if (i < inventorySlots.Count)
+            if (i < inventorySlots.Count && inventory[i] != null) 
             {
                 Image slotImage = inventorySlots[i].GetComponent<Image>();
+                Button slotButton = inventorySlots[i].GetComponent<Button>();
+
                 if (slotImage != null)
                 {
                     SpriteRenderer itemSprite = inventory[i].GetComponent<SpriteRenderer>();
@@ -201,10 +208,100 @@ public class Player : MonoBehaviour, IResettable
                     }
                 }
 
+                if (slotButton != null)
+                {
+                    int index = i;
+                    slotButton.onClick.AddListener(() => OnInventorySlotClicked(index));
+                }
             }
         }
-
     }
+
+    private void OnInventorySlotClicked(int index)
+    {
+        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+
+        if (index >= 0 && index < inventory.Count && inventory[index] != null)
+        {
+            GameObject item = inventory[index];
+            string itemName = item.name;
+
+            Debug.Log($"Clicked on inventory item: {itemName}");
+
+            if (itemName == "hotBurger" || itemName == "hotBurger(Clone)")
+            {
+                ConsumeItem(index);
+                if (dialogueManager != null)
+                {
+                    dialogueManager.ShowDialogue("WOW, I feel soo much stronger");
+                }
+            }
+            else if (itemName == "hardNoodles" || itemName == "hardNoodles(Clone)")
+            {
+                if (dialogueManager != null)
+                {
+                    dialogueManager.ShowDialogue("I don't feel like eating it, but it seems like I can break something with it");
+                }
+            }
+            else if (itemName == "pills" || itemName == "pills(Clone)")
+            {
+                if (dialogueManager != null)
+                {
+                    ConsumeItem(index);
+                    dialogueManager.ShowDialogue("I don't feel soo good");
+                    GameManager gameManager = FindObjectOfType<GameManager>();
+                    if (gameManager != null)
+                    {
+                        gameManager.ResetGame();
+                    }
+                }
+            }
+            else if (itemName == "coldNoodles" || itemName == "coldNoodles(Clone)" || itemName == "coldBurger" || itemName == "coldBurger(Clone)")
+            {
+                ConsumeItem(index);
+                if (dialogueManager != null)
+                {
+                    dialogueManager.ShowDialogue("Need to heat this first");
+                }
+            }
+            else if (itemName == "money" || itemName == "money(Clone)")
+            {
+                ConsumeItem(index);
+                if (dialogueManager != null)
+                {
+                    dialogueManager.ShowDialogue("I don't feel like eating it, but it seems like I can break something with it");
+                }
+            }
+            else
+            {
+                if (dialogueManager != null)
+                {
+                    dialogueManager.ShowDialogue($"Can't do anything with this right now");
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Clicked on an empty or invalid inventory slot.");
+        }
+    }
+
+    private void ConsumeItem(int index)
+    {
+        if (index >= 0 && index < inventory.Count && inventory[index] != null) 
+        {
+            GameObject item = inventory[index];
+            inventory[index] = null;
+            UpdateInventoryUI();
+            Debug.Log($"Consumed item: {item.name}");
+        }
+        else
+        {
+            Debug.LogWarning("Attempted to consume an invalid or empty inventory slot.");
+        }
+    }
+
+
 
 
 
