@@ -155,7 +155,6 @@ public class Microwave : Interactable
             }
         }
     }
-
     public void OnMicrowaveButtonClicked()
     {
         if (microwaveItem != null)
@@ -166,17 +165,25 @@ public class Microwave : Interactable
                 Player player = playerObject.GetComponent<Player>();
                 if (player != null)
                 {
-
                     bool itemAdded = false;
+
                     for (int i = 0; i < player.inventory.Count; i++)
                     {
-                        if (player.inventory[i] == null) 
+                        if (player.inventory[i] == null)
                         {
                             player.inventory[i] = microwaveItem;
                             Debug.Log($"Added {microwaveItem.name} to inventory slot {i}.");
                             itemAdded = true;
                             break;
                         }
+                    }
+
+
+                    if (!itemAdded && player.inventory.Count < 5)
+                    {
+                        player.inventory.Add(microwaveItem);
+                        Debug.Log($"Added {microwaveItem.name} to a new inventory slot. Inventory size is now {player.inventory.Count}.");
+                        itemAdded = true;
                     }
 
                     if (!itemAdded)
@@ -186,10 +193,7 @@ public class Microwave : Interactable
 
                     microwaveItem = null;
 
-
                     UpdateMicrowaveDisplay();
-
-
                     UpdateInventoryDisplay(player);
                 }
             }
