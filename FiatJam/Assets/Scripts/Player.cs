@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IResettable
 {
+
+    [SerializeField] private Transform frame;
+    private Vector3 initialFramePosition;
+
+
     public float speed = 5f;
 
     private Rigidbody2D rb;
@@ -26,6 +31,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private List<GameObject> inventorySlots;
 
+    private Vector3 startingPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +40,18 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         cam = Camera.main;
         camWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
+
+
+        startingPosition = transform.position; // Save the starting position
+
         if (inventoryCanvas != null)
         {
             inventoryCanvas.SetActive(false);
+        }
+
+        if (frame != null)
+        {
+            initialFramePosition = frame.position; // Save the initial frame position
         }
 
 
@@ -189,6 +204,31 @@ public class Player : MonoBehaviour
             }
         }
 
+    }
+
+
+
+
+    public void ResetObject()
+    {
+
+        transform.position = startingPosition;
+
+
+        if (frame != null && cam != null)
+        {
+            cam.transform.position = new Vector3(frame.position.x, frame.position.y, cam.transform.position.z);
+            Debug.Log("Camera reset to match frame's position.");
+        }
+
+
+        CloseInventory();
+
+
+        inventory.Clear();
+        UpdateInventoryUI();
+
+        Debug.Log("Player reset to starting position, inventory cleared, and camera aligned with frame.");
     }
 
 

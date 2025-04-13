@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Microwave : Interactable
+public class Microwave : Interactable, IResettable
 {
 
 
@@ -314,5 +314,13 @@ public class Microwave : Interactable
                 }
             }
         }
+    }
+
+    public void ResetObject()
+    {
+        // Close the microwave canvas
+        CloseCanvas();
+
+        Debug.Log("Microwave reset: canvas closed.");
     }
 }

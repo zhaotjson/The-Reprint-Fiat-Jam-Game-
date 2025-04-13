@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Painting : Interactable
+public class Painting : Interactable, IResettable
 {
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private string dialogueMessage = "Oh, there's a keycard behind this painting.";
@@ -57,5 +57,13 @@ public class Painting : Interactable
         {
             Debug.LogWarning("Player object not found.");
         }
+    }
+
+    public void ResetObject()
+    {
+        // Reset totalTaken to 0
+        totalTaken = 0;
+
+        Debug.Log("Painting reset: totalTaken set to 0.");
     }
 }

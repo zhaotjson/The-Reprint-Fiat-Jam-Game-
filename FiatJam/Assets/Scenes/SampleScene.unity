@@ -9118,6 +9118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238def55a385c457e95e275d8b683a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frame: {fileID: 1906737285}
   speed: 5
   inventory: []
   maxInventorySize: 5
