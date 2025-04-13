@@ -67,6 +67,14 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 else
                 {
                     Debug.Log("Money not found in inventory.");
+                    DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+                    if (dialogueManager != null)
+                    {
+                        dialogueManager.ShowDialogue("Damn, I need a dollar.");
+                    }
+
+
+
                 }
             }
         }
