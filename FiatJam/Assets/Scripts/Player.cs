@@ -325,6 +325,7 @@ public class Player : MonoBehaviour, IResettable
             cam.transform.position = new Vector3(frame.position.x, frame.position.y, cam.transform.position.z);
             Debug.Log("Camera reset to match frame's position.");
         }
+        speed = 5f;
 
 
         CloseInventory();

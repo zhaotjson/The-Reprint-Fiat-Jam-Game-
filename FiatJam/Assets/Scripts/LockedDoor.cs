@@ -15,13 +15,11 @@ public class LockedDoor : Door
             if (player != null)
             {
 
-                GameObject keycard = player.inventory.Find(item => item.name == keycardName);
+                GameObject keycard = player.inventory.Find(item => item != null && item.name == keycardName);
 
                 if (keycard != null)
                 {
 
-
-                    Debug.Log("Keycard used. Door unlocked.");
                     base.Interact(); 
                 }
                 else
