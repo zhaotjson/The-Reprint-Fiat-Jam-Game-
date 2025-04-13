@@ -137,9 +137,24 @@ public class Microwave : Interactable, IResettable
                     }
                 }
 
+                if (inventoryItem != null && microwaveItem != null)
+                {
+                    string itemName = inventoryItem.name;
+                    if (itemName != "coldBurger" && itemName != "coldNoodles")
+                    {
+                        Debug.Log($"Item '{itemName}' cannot be swapped into the microwave.");
+                        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+                        if (dialogueManager != null)
+                        {
+                            dialogueManager.ShowDialogue($"I don't think I can microwave that.");
+                        }
+                        return;
+                    }
+                }
+
+
                 if (microwaveItem != null)
                 {
-
                     GameObject temp = microwaveItem;
                     microwaveItem = inventoryItem;
                     player.inventory[index] = temp;
