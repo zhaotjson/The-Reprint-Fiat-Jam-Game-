@@ -13,6 +13,8 @@ public class Player : MonoBehaviour, IResettable
 
     public float speed = 5f;
 
+    public int subjectNum;
+
 
     public bool isBuffed = false;
 
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour, IResettable
             initialFramePosition = frame.position; 
         }
 
+        subjectNum = 89;
 
     }
 
@@ -273,7 +276,7 @@ public class Player : MonoBehaviour, IResettable
                     GameManager gameManager = FindObjectOfType<GameManager>();
                     if (gameManager != null)
                     {
-                        gameManager.ResetGame();
+                        gameManager.ResetGame("pill");
                     }
                 }
             }
@@ -331,6 +334,8 @@ public class Player : MonoBehaviour, IResettable
 
         transform.position = startingPosition;
         isBuffed = false;
+
+        subjectNum++;
 
 
         if (frame != null && cam != null)
