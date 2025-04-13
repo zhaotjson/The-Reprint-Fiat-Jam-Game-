@@ -5,15 +5,15 @@ using TMPro;
 
 public class countDown : MonoBehaviour, IResettable
 {
-    public float timeLeft = 60.0f;
+    public float timeLeft = 3.0f;
 
     [SerializeField] private TMP_Text countdownText;
 
-    private float initialTime;
+    private float initialTime = 60.0f;
 
     void Start()
     {
-        initialTime = timeLeft;
+        timeLeft = 3.0f;
         StartCoroutine(CountdownCoroutine());
     }
 

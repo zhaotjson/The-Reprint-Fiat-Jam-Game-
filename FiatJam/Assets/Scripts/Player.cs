@@ -8,12 +8,16 @@ public class Player : MonoBehaviour, IResettable
 {
 
     [SerializeField] private Transform frame;
+
+    [SerializeField] private Transform gameStartFrame;
     private Vector3 initialFramePosition;
 
 
     public float speed = 5f;
 
     public int subjectNum;
+
+
 
 
     public bool isBuffed = false;
@@ -36,7 +40,7 @@ public class Player : MonoBehaviour, IResettable
 
     [SerializeField] private List<GameObject> inventorySlots;
 
-    private Vector3 startingPosition;
+    [SerializeField] private Vector3 startingPosition;
 
     void Start()
     {
@@ -48,16 +52,15 @@ public class Player : MonoBehaviour, IResettable
         camWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
 
 
-        startingPosition = transform.position;
-
         if (inventoryCanvas != null)
         {
             inventoryCanvas.SetActive(false);
         }
 
-        if (frame != null)
+        if (gameStartFrame != null && cam != null)
         {
-            initialFramePosition = frame.position; 
+            cam.transform.position = new Vector3(gameStartFrame.position.x, gameStartFrame.position.y, gameStartFrame.transform.position.z - 10);
+            Debug.Log("Camera reset to match frame's position.");
         }
 
         subjectNum = 89;

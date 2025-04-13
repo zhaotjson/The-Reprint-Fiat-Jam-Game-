@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         foreach (char c in message)
         {
             resetText.text += c;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.02f);
         }
     }
 
