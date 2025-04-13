@@ -36,7 +36,6 @@ public class Player : MonoBehaviour, IResettable
 
     private Vector3 startingPosition;
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -47,7 +46,7 @@ public class Player : MonoBehaviour, IResettable
         camWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
 
 
-        startingPosition = transform.position; // Save the starting position
+        startingPosition = transform.position;
 
         if (inventoryCanvas != null)
         {
@@ -56,16 +55,26 @@ public class Player : MonoBehaviour, IResettable
 
         if (frame != null)
         {
-            initialFramePosition = frame.position; // Save the initial frame position
+            initialFramePosition = frame.position; 
         }
 
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+
+            GameManager gameManager = FindObjectOfType<GameManager>();
+            if (gameManager != null)
+            {
+                gameManager.ResetGame();
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -98,7 +107,7 @@ public class Player : MonoBehaviour, IResettable
         }
 
 
-        // Camera Follow
+
 
         Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
         Vector3 camPos = cam.transform.position;
@@ -265,7 +274,6 @@ public class Player : MonoBehaviour, IResettable
             }
             else if (itemName == "coldNoodles" || itemName == "coldNoodles(Clone)" || itemName == "coldBurger" || itemName == "coldBurger(Clone)")
             {
-                ConsumeItem(index);
                 if (dialogueManager != null)
                 {
                     dialogueManager.ShowDialogue("Need to heat this first");
@@ -295,10 +303,10 @@ public class Player : MonoBehaviour, IResettable
 
     private void ConsumeItem(int index)
     {
-        if (index >= 0 && index < inventory.Count && inventory[index] != null) 
+        if (index >= 0 && index < inventory.Count && inventory[index] != null)
         {
             GameObject item = inventory[index];
-            inventory[index] = null;
+            inventory.RemoveAt(index);
             UpdateInventoryUI();
             Debug.Log($"Consumed item: {item.name}");
         }
