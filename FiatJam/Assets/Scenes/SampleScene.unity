@@ -11618,7 +11618,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &1535144599
 RectTransform:
@@ -16571,6 +16571,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1535144599}
   - {fileID: 69573642}
   - {fileID: 1660387728}
   - {fileID: 1497811316}
@@ -16608,6 +16609,5 @@ SceneRoots:
   - {fileID: 218374358}
   - {fileID: 825541864}
   - {fileID: 1846612961}
-  - {fileID: 1535144599}
   - {fileID: 1785320276}
   - {fileID: 187878293}
