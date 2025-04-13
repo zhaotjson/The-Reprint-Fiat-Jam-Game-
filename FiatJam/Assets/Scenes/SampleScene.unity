@@ -415,13 +415,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 32951221}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 32951223}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 32951224}
   m_SourcePrefab: {fileID: 100100000, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
 --- !u!224 &32951218 stripped
 RectTransform:
@@ -433,73 +427,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
   m_PrefabInstance: {fileID: 32951217}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &32951220 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2292084062621060605, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-  m_PrefabInstance: {fileID: 32951217}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32951219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &32951221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32951219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 32951220}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 32951224}
-        m_TargetAssemblyTypeName: microwaveItem, Assembly-CSharp
-        m_MethodName: OnItemClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &32951223
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -545,19 +472,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &32951224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32951219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0860fb6b8d64df9b6d0be2d4ad9370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  microwave: {fileID: 56938608}
 --- !u!1 &56938608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,13 +1128,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 142980278}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 142980280}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 142980281}
   m_SourcePrefab: {fileID: 100100000, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
 --- !u!224 &142980275 stripped
 RectTransform:
@@ -1232,73 +1140,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
   m_PrefabInstance: {fileID: 142980274}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &142980277 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2292084062621060605, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-  m_PrefabInstance: {fileID: 142980274}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142980276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &142980278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142980276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 142980277}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 142980281}
-        m_TargetAssemblyTypeName: microwaveItem, Assembly-CSharp
-        m_MethodName: OnItemClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &142980280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1344,19 +1185,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &142980281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142980276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0860fb6b8d64df9b6d0be2d4ad9370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  microwave: {fileID: 56938608}
 --- !u!1 &147730791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,13 +1391,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 172061505}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 172061507}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 172061508}
   m_SourcePrefab: {fileID: 100100000, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
 --- !u!224 &172061502 stripped
 RectTransform:
@@ -1581,73 +1403,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
   m_PrefabInstance: {fileID: 172061501}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &172061504 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2292084062621060605, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-  m_PrefabInstance: {fileID: 172061501}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172061503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &172061505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172061503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 172061504}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 172061508}
-        m_TargetAssemblyTypeName: microwaveItem, Assembly-CSharp
-        m_MethodName: OnItemClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &172061507
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1693,19 +1448,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &172061508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172061503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0860fb6b8d64df9b6d0be2d4ad9370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  microwave: {fileID: 56938608}
 --- !u!1 &218374354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3901,13 +3643,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 793011943}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 793011945}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 793011946}
   m_SourcePrefab: {fileID: 100100000, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
 --- !u!224 &793011940 stripped
 RectTransform:
@@ -3919,73 +3655,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
   m_PrefabInstance: {fileID: 793011939}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &793011942 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2292084062621060605, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-  m_PrefabInstance: {fileID: 793011939}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793011941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &793011943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793011941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 793011942}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 793011946}
-        m_TargetAssemblyTypeName: microwaveItem, Assembly-CSharp
-        m_MethodName: OnItemClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &793011945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4031,19 +3700,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &793011946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793011941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0860fb6b8d64df9b6d0be2d4ad9370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  microwave: {fileID: 56938608}
 --- !u!1 &800433538
 GameObject:
   m_ObjectHideFlags: 0
@@ -4352,13 +4008,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 839516689}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 839516691}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 839516692}
   m_SourcePrefab: {fileID: 100100000, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
 --- !u!224 &839516686 stripped
 RectTransform:
@@ -4370,73 +4020,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
   m_PrefabInstance: {fileID: 839516685}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &839516688 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2292084062621060605, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-  m_PrefabInstance: {fileID: 839516685}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839516687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &839516689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839516687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 839516688}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 839516692}
-        m_TargetAssemblyTypeName: microwaveItem, Assembly-CSharp
-        m_MethodName: OnItemClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &839516691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4482,19 +4065,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &839516692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839516687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0860fb6b8d64df9b6d0be2d4ad9370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  microwave: {fileID: 56938608}
 --- !u!1 &859653717
 GameObject:
   m_ObjectHideFlags: 0
@@ -7922,9 +7492,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1639636079}
-    - targetCorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1639636081}
   m_SourcePrefab: {fileID: 100100000, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
 --- !u!224 &1639636076 stripped
@@ -7937,61 +7504,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1301107603913475063, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
   m_PrefabInstance: {fileID: 1639636075}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1639636078 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2292084062621060605, guid: 9147d53ebe8a73b458f37692dc119071, type: 3}
-  m_PrefabInstance: {fileID: 1639636075}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639636077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1639636079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639636077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1639636078}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!61 &1639636081
 BoxCollider2D:
   m_ObjectHideFlags: 0
