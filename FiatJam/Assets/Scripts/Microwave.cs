@@ -117,9 +117,24 @@ public class Microwave : Interactable
 
                 if (inventoryItem == null && microwaveItem == null)
                 {
-
                     Debug.Log("Both inventory slot and microwave are empty. No action performed.");
                     return;
+                }
+
+
+                if (inventoryItem != null && microwaveItem == null)
+                {
+                    string itemName = inventoryItem.name;
+                    if (itemName != "coldBurger" && itemName != "coldNoodles")
+                    {
+                        Debug.Log($"Item '{itemName}' cannot be placed in the microwave.");
+                        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+                        if (dialogueManager != null)
+                        {
+                            dialogueManager.ShowDialogue($"I don't think I can microwave that.");
+                        }
+                        return;
+                    }
                 }
 
                 if (microwaveItem != null)
@@ -131,15 +146,11 @@ public class Microwave : Interactable
                 }
                 else
                 {
-
                     microwaveItem = inventoryItem;
-                    player.inventory[index] = null; 
+                    player.inventory[index] = null;
                 }
 
-
                 UpdateMicrowaveDisplay();
-
-
                 UpdateInventoryDisplay(player);
             }
         }
