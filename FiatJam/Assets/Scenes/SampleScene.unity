@@ -12841,7 +12841,8 @@ MonoBehaviour:
   spriteClosed: {fileID: 21300000, guid: 58722f7b144cc4e4fa7c636a3c13a651, type: 3}
   numPadCanvas: {fileID: 1785320272}
   inputDisplay: {fileID: 699232386}
-  correctCode: 5
+  vendingMachine: {fileID: 1862285790}
+  correctCode: 0
 --- !u!1 &1785320272
 GameObject:
   m_ObjectHideFlags: 0
@@ -13491,6 +13492,7 @@ MonoBehaviour:
   isInteractable: 0
   vendingMachineCanvas: {fileID: 2140314013}
   numCarrots: 0
+  numCarrotsPrevious: -1
   carrotPrefabs:
   - {fileID: 910279454}
   - {fileID: 499607714}

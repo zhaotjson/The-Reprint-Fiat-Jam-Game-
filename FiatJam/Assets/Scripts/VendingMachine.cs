@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VendingMachine : Interactable
+public class VendingMachine : Interactable, IResettable
 {
 
     [SerializeField] private GameObject vendingMachineCanvas;
 
     public int numCarrots = 0;
+
+    public int numCarrotsPrevious = -1;
 
     [SerializeField] private List<GameObject> carrotPrefabs = new List<GameObject>();
 
@@ -83,13 +85,30 @@ public class VendingMachine : Interactable
 
     public void DisplayCarrots()
     {
+        for (int i = 0; i < carrotPrefabs.Count; i++)
+        {
+            carrotPrefabs[i].SetActive(false); // Ensure all carrots are hidden first
+        }
+
         for (int i = 0; i < numCarrots; i++)
         {
             carrotPrefabs[i].SetActive(true);
-
-
-
         }
+    }
+
+
+
+    public void ResetObject()
+    {
+
+        numCarrotsPrevious = numCarrots;
+
+
+        numCarrots = Random.Range(0, 10);
+
+
+        DisplayCarrots();
+        CloseCanvas();
     }
 }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IResettable
 {
 
     [SerializeField] private TMP_Text hoverText;
@@ -13,6 +13,15 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private string itemDescription;
 
     [SerializeField] private GameObject itemPrefab;
+
+    private Vector3 initialPosition;
+    private bool isCollected = false;
+
+    private void Start()
+    {
+
+        initialPosition = transform.position;
+    }
 
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -56,7 +65,9 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     {
                         Debug.Log("Item added to inventory.");
                         hoverText.text = string.Empty;
-                        DestroyImmediate(gameObject, true);
+
+                        isCollected = true; // Mark the item as collected
+                        gameObject.SetActive(false); // Hide the item instead of destroying it
                     }
                     else
                     {
@@ -84,6 +95,17 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         }
 
+    }
+
+
+
+    public void ResetObject()
+    {
+
+        transform.position = initialPosition;
+        isCollected = false;
+        gameObject.SetActive(true);
+        Debug.Log($"Item {gameObject.name} has been reset.");
     }
 
 

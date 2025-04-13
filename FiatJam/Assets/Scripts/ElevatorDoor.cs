@@ -2,18 +2,42 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class ElevatorDoor : Door
+public class ElevatorDoor : Door, IResettable
 {
     [SerializeField] private GameObject numPadCanvas;
     [SerializeField] private TextMeshProUGUI inputDisplay;
-    [SerializeField] private int correctCode = 5;
+
+    [SerializeField] private GameObject vendingMachine;
+
+    public int correctCode;
 
     private bool isLocked = false;
     private string userInput = "";
 
+
+    private VendingMachine vendingMachineScript;
+
     protected override void Start()
     {
         base.Start();
+
+
+
+        if (vendingMachine != null)
+        {
+            vendingMachineScript = vendingMachine.GetComponent<VendingMachine>();
+            if (vendingMachineScript != null)
+            {
+                correctCode = vendingMachineScript.numCarrotsPrevious;
+                Debug.Log($"[ElevatorDoor] Initial correct code set to: {correctCode}");
+            }
+            else
+            {
+                Debug.LogWarning("[ElevatorDoor] VendingMachine script not found on the assigned GameObject.");
+            }
+        }
+        
+
         if (numPadCanvas != null)
         {
             numPadCanvas.SetActive(false); 
@@ -29,17 +53,14 @@ public class ElevatorDoor : Door
     {
         if (isLocked)
         {
-            Debug.Log("Elevator is locked. Please wait.");
+
 
             DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
             if (dialogueManager != null)
             {
                 dialogueManager.ShowDialogue("The elevator is locked. Please wait a moment.");
             }
-            else
-            {
-                Debug.LogWarning("DialogueManager not found in the scene.");
-            }
+
 
             return;
         }
@@ -81,29 +102,19 @@ public class ElevatorDoor : Door
             }
             else
             {
-                Debug.Log("Incorrect code. Try again in a minute.");
                 DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
                 if (dialogueManager != null)
                 {
                     dialogueManager.ShowDialogue("Incorrect code. Try again in a minute.");
 
-                    Debug.Log("Incorrect code. Try again in a minute.");
+                }
 
-                }
-                else
-                {
-                    Debug.LogWarning("DialogueManager not found in the scene.");
-                }
 
                 
                 numPadCanvas.SetActive(false);
 
                 StartCoroutine(LockElevator());
             }
-        }
-        else
-        {
-            Debug.LogWarning("Invalid input. Please enter a valid number.");
         }
 
 
@@ -125,15 +136,43 @@ public class ElevatorDoor : Door
         {
             inputDisplay.text = ""; 
         }
-        Debug.Log("Number pad closed.");
+
     }
 
     private IEnumerator LockElevator()
     {
         isLocked = true;
-        Debug.Log("Elevator locked for 1 minute.");
         yield return new WaitForSeconds(60);
         isLocked = false;
-        Debug.Log("Elevator unlocked. You can try again.");
+
     }
+
+
+
+    public void ResetObject()
+    {
+        if (vendingMachineScript != null)
+        {
+
+            correctCode = vendingMachineScript.numCarrots;
+            Debug.Log($"[ElevatorDoor] Reset complete. New correct code is: {correctCode}");
+        }
+        else
+        {
+            Debug.LogWarning("[ElevatorDoor] VendingMachine script reference is missing during reset.");
+        }
+
+        isLocked = false;
+        userInput = "";
+        if (inputDisplay != null)
+        {
+            inputDisplay.text = "";
+        }
+        if (numPadCanvas != null)
+        {
+            numPadCanvas.SetActive(false);
+        }
+    }
+
+
 }

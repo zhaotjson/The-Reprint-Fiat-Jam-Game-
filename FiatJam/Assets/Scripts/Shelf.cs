@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shelf : Interactable
+public class Shelf : Interactable, IResettable
 {
     [SerializeField] private GameObject itemPrefab; 
     [SerializeField] private string dialogueMessage = "Hmmm, there's three dollars here. I should take it."; 
@@ -60,5 +60,12 @@ public class Shelf : Interactable
         {
             Debug.LogWarning("Player object not found.");
         }
+    }
+
+
+    public void ResetObject()
+    {
+        totalTaken = 0;
+        Debug.Log("Shelf has been reset. Money can be taken again.");
     }
 }
