@@ -13,6 +13,9 @@ public class Player : MonoBehaviour, IResettable
 
     public float speed = 5f;
 
+
+    public bool isBuffed = false;
+
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
 
@@ -36,6 +39,8 @@ public class Player : MonoBehaviour, IResettable
     // Start is called before the first frame update
     void Start()
     {
+
+        isBuffed = false;
         rb = GetComponent<Rigidbody2D>();    
         sprite = GetComponent<SpriteRenderer>();
         cam = Camera.main;
@@ -234,7 +239,9 @@ public class Player : MonoBehaviour, IResettable
                 if (dialogueManager != null)
                 {
                     dialogueManager.ShowDialogue("WOW, I feel soo much stronger");
+
                 }
+                isBuffed = true;
             }
             else if (itemName == "hardNoodles" || itemName == "hardNoodles(Clone)")
             {
@@ -310,6 +317,7 @@ public class Player : MonoBehaviour, IResettable
     {
 
         transform.position = startingPosition;
+        isBuffed = false;
 
 
         if (frame != null && cam != null)
