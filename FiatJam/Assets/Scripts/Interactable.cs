@@ -25,7 +25,7 @@ public class Interactable : MonoBehaviour
         Debug.Log("This interaction was not implemented ;(");
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -34,7 +34,7 @@ public class Interactable : MonoBehaviour
         }       
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    public virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
