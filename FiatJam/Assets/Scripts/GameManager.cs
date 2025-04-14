@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private List<IResettable> resettableObjects;
     private Coroutine typingCoroutine;
 
+    [SerializeField] private AudioSource textSoundSource;
+
     void Start()
     {
         resettableObjects = new List<IResettable>(FindObjectsOfType<MonoBehaviour>().OfType<IResettable>());
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
             if (player != null)
             {
                 string message = GenerateResetMessage(player.subjectNum, resetType);
+                textSoundSource.Play();
 
 
                 if (typingCoroutine != null)

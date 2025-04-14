@@ -27,6 +27,7 @@ public class Microwave : Interactable, IResettable
     [SerializeField] private AudioSource microwaveOpenSound;
     [SerializeField] private AudioSource microwaveCloseSound;
     [SerializeField] private AudioSource microwaveUseSound;
+    [SerializeField] private AudioSource microwaveBeepSound;
 
     private Vector3 originalPrefabPosition;
 
@@ -380,6 +381,7 @@ public class Microwave : Interactable, IResettable
         }
         isCooking = true;
         cookingCoroutine = StartCoroutine(CookingTimer());
+        microwaveUseSound.loop = true;
         microwaveUseSound.Play();
     }
 
@@ -424,6 +426,8 @@ public class Microwave : Interactable, IResettable
             microwaveItem = Instantiate(hardNoodlesPrefab);
         }
 
+        microwaveUseSound.Stop();
+        microwaveBeepSound.Play();
         UpdateMicrowaveDisplay();
     }
 

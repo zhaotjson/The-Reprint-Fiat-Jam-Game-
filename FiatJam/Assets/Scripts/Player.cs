@@ -45,6 +45,7 @@ public class Player : MonoBehaviour, IResettable
 
     [SerializeField] private AudioSource hopAudioSource;
     [SerializeField] private AudioSource addToInventoryAudioSource;
+    [SerializeField] private AudioSource eatAudioSource;
 
     void Start()
     {
@@ -278,6 +279,7 @@ public class Player : MonoBehaviour, IResettable
                     dialogueManager.ShowDialogue("WOW, I feel soo much stronger");
 
                 }
+                eatAudioSource.Play();
                 isBuffed = true;
             }
             else if (itemName == "hardNoodles" || itemName == "hardNoodles(Clone)")
