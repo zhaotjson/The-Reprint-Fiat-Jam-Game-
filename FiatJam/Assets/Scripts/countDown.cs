@@ -5,7 +5,7 @@ using TMPro;
 
 public class countDown : MonoBehaviour, IResettable
 {
-    public float timeLeft = 3.0f;
+    public float timeLeft = 10.0f;
 
     [SerializeField] private TMP_Text countdownText;
 
@@ -13,7 +13,7 @@ public class countDown : MonoBehaviour, IResettable
 
     void Start()
     {
-        timeLeft = 3.0f;
+        timeLeft = 10.0f;
         StartCoroutine(CountdownCoroutine());
     }
 
