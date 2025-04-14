@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
             resetCanvas.SetActive(false);
             
         }
-        Screen.SetResolution(1920, 1080, true);
+        // Screen.SetResolution(1920, 1080, true);
 
     }
 

@@ -231,7 +231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -83, y: 183}
+  m_AnchoredPosition: {x: 8, y: 183}
   m_SizeDelta: {x: 1032.0247, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &483924805
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Temporary\n     Title"
+  m_text: THE REPRINT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 42165f39aa84e4b7bb3b3f5549d9e24d, type: 2}
   m_sharedMaterial: {fileID: -4401150067020654844, guid: 42165f39aa84e4b7bb3b3f5549d9e24d, type: 2}
@@ -508,7 +508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 356}
+  m_AnchoredPosition: {x: -4, y: 356}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381400442
