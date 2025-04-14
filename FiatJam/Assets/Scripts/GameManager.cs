@@ -27,9 +27,14 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame(string resetType = "default")
     {
+
+
+
         if (resetCanvas != null && resetText != null)
         {
             Player player = FindObjectOfType<Player>();
+
+            player.SetMovementEnabled(false);
             if (player != null)
             {
                 string message = GenerateResetMessage(player.subjectNum, resetType);
