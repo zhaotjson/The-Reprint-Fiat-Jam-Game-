@@ -3,6 +3,11 @@
 Don't use sounds w/ FL prefix. They are the raw files that I recorded.
 Other sound files have self explanatory names.
 
+## ===== External Sounds Credits =====
+
+Open/close door by Lil Yoshi -- https://samplefocus.com/samples/open-close-door-sound-fx 
+Elavator by ZapSplat -- https://www.zapsplat.com/sound-effect-category/elevator/
+
 ## ===== Sounds Checklist ======
 
 Background: 

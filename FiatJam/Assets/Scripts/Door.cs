@@ -12,6 +12,8 @@ public class Door : Interactable, IResettable
 
     private SpriteRenderer sprite;
 
+    [SerializeField] private AudioSource playOnInteract;
+
     protected override void Start()
     {
         base.Start();
@@ -22,6 +24,9 @@ public class Door : Interactable, IResettable
     public override void Interact()
     {
         sprite.sprite = spriteOpen;
+        if (playOnInteract != null) {
+            playOnInteract.Play();
+        }
         StartCoroutine(Teleport());
     }
 

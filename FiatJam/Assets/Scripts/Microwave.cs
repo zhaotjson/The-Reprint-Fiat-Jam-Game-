@@ -24,6 +24,10 @@ public class Microwave : Interactable, IResettable
     [SerializeField] private GameObject hotBurgerPrefab;
     [SerializeField] private GameObject hardNoodlesPrefab;
 
+    [SerializeField] private AudioSource microwaveOpenSound;
+    [SerializeField] private AudioSource microwaveCloseSound;
+    [SerializeField] private AudioSource microwaveUseSound;
+
     private Vector3 originalPrefabPosition;
 
     public bool isCooking = false;
@@ -254,6 +258,7 @@ public class Microwave : Interactable, IResettable
             {
                 player.SetMovementEnabled(false);
                 UpdateInventoryDisplay(player);
+                microwaveOpenSound.Play();
             }
         }
 
@@ -342,6 +347,8 @@ public class Microwave : Interactable, IResettable
                     player.SetMovementEnabled(true);
                 }
             }
+
+            microwaveCloseSound.Play();
         }
     }
 
@@ -373,6 +380,7 @@ public class Microwave : Interactable, IResettable
         }
         isCooking = true;
         cookingCoroutine = StartCoroutine(CookingTimer());
+        microwaveUseSound.Play();
     }
 
 

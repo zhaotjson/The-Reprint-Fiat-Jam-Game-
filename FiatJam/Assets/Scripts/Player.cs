@@ -44,6 +44,7 @@ public class Player : MonoBehaviour, IResettable
     [SerializeField] private Vector3 startingPosition;
 
     [SerializeField] private AudioSource hopAudioSource;
+    [SerializeField] private AudioSource addToInventoryAudioSource;
 
     void Start()
     {
@@ -160,6 +161,7 @@ public class Player : MonoBehaviour, IResettable
         {
             inventory.Add(item);
             Debug.Log("Item added to inventory: " + item.name);
+            addToInventoryAudioSource.Play();
             return true;
         }
         else
