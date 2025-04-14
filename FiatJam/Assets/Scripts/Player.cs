@@ -47,6 +47,8 @@ public class Player : MonoBehaviour, IResettable
     [SerializeField] private AudioSource addToInventoryAudioSource;
     [SerializeField] private AudioSource eatAudioSource;
 
+    public Interactable ladderPlacementLocation;
+
     void Start()
     {
 
@@ -57,10 +59,10 @@ public class Player : MonoBehaviour, IResettable
         camWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
 
 
-        if (inventoryCanvas != null)
-        {
-            inventoryCanvas.SetActive(false);
-        }
+        // if (inventoryCanvas != null)
+        // {
+        //     inventoryCanvas.SetActive(false);
+        // }
 
         if (gameStartFrame != null && cam != null)
         {
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour, IResettable
         }
 
         subjectNum = 89;
-
+        UpdateInventoryUI();
     }
 
 
@@ -94,17 +96,17 @@ public class Player : MonoBehaviour, IResettable
         */
 
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (!inventoryOpen)
-            {
-                OpenInventory();
-            }
-            else
-            {
-                CloseInventory();
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.Tab))
+        // {
+        //     if (!inventoryOpen)
+        //     {
+        //         OpenInventory();
+        //     }
+        //     else
+        //     {
+        //         CloseInventory();
+        //     }
+        // }
 
 
         // Movement
@@ -163,6 +165,7 @@ public class Player : MonoBehaviour, IResettable
             inventory.Add(item);
             Debug.Log("Item added to inventory: " + item.name);
             addToInventoryAudioSource.Play();
+            UpdateInventoryUI();
             return true;
         }
         else
@@ -180,31 +183,31 @@ public class Player : MonoBehaviour, IResettable
     }
 
 
-    public void OpenInventory()
-    {
+    // public void OpenInventory()
+    // {
 
-        if (inventoryCanvas != null)
-        {
-            inventoryCanvas.SetActive(true);
-            canMove = false;
-            Debug.Log("Inventory opened");
-            UpdateInventoryUI();
-            inventoryOpen = true;
-        }
+    //     if (inventoryCanvas != null)
+    //     {
+    //         inventoryCanvas.SetActive(true);
+    //         canMove = false;
+    //         Debug.Log("Inventory opened");
+    //         UpdateInventoryUI();
+    //         inventoryOpen = true;
+    //     }
 
 
-    }
+    // }
 
-    public void CloseInventory()
-    {
-        if (inventoryCanvas != null)
-        {
-            inventoryCanvas.SetActive(false);
-            canMove = true;
-            Debug.Log("Inventory closed");
-            inventoryOpen = false;
-        }
-    }
+    // public void CloseInventory()
+    // {
+    //     if (inventoryCanvas != null)
+    //     {
+    //         inventoryCanvas.SetActive(false);
+    //         canMove = true;
+    //         Debug.Log("Inventory closed");
+    //         inventoryOpen = false;
+    //     }
+    // }
 
 
 
@@ -311,10 +314,24 @@ public class Player : MonoBehaviour, IResettable
             }
             else if (itemName == "money" || itemName == "money(Clone)")
             {
-                ConsumeItem(index);
+                // ConsumeItem(index);
                 if (dialogueManager != null)
                 {
-                    dialogueManager.ShowDialogue("I don't feel like eating it, but it seems like I can break something with it");
+                    dialogueManager.ShowDialogue("I could probably buy something with this");
+                }
+            }
+            else if (itemName == "ladderItem" || itemName == "ladderItem(Clone)")
+            {
+                if (ladderPlacementLocation.isInteractable) {
+                    ladderPlacementLocation.Interact();
+                    ConsumeItem(index);
+                }
+                else
+                {
+                    if (dialogueManager != null)
+                    {
+                        dialogueManager.ShowDialogue("I can't place it here");
+                    }
                 }
             }
             else
@@ -329,6 +346,7 @@ public class Player : MonoBehaviour, IResettable
         {
             Debug.LogWarning("Clicked on an empty or invalid inventory slot.");
         }
+        UpdateInventoryUI();
     }
 
     private void ConsumeItem(int index)
@@ -344,6 +362,7 @@ public class Player : MonoBehaviour, IResettable
         {
             Debug.LogWarning("Attempted to consume an invalid or empty inventory slot.");
         }
+        UpdateInventoryUI();
     }
 
 
@@ -368,7 +387,7 @@ public class Player : MonoBehaviour, IResettable
         speed = 5f;
 
 
-        CloseInventory();
+        // CloseInventory();
 
 
         inventory.Clear();

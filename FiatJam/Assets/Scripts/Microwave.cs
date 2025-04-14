@@ -121,6 +121,7 @@ public class Microwave : Interactable, IResettable
                     }
                 }
             }
+            player.UpdateInventoryUI();
         }
     }
 
@@ -217,7 +218,8 @@ public class Microwave : Interactable, IResettable
 
                     if (!itemAdded && player.inventory.Count < 5)
                     {
-                        player.inventory.Add(microwaveItem);
+                        // player.inventory.Add(microwaveItem);
+                        player.AddToInventory(microwaveItem);
                         Debug.Log($"Added {microwaveItem.name} to a new inventory slot. Inventory size is now {player.inventory.Count}.");
                         itemAdded = true;
                     }
