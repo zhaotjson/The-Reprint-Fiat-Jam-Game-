@@ -12455,6 +12455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frame: {fileID: 1906737285}
   gameStartFrame: {fileID: 2120042717}
+  pillsPrefab: {fileID: 1098357917822856001, guid: 5ba7403d9f87a584f890f316d47c2845, type: 3}
   speed: 5
   subjectNum: 0
   isBuffed: 0

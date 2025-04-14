@@ -12,6 +12,7 @@ public class Player : MonoBehaviour, IResettable
     [SerializeField] private Transform gameStartFrame;
     private Vector3 initialFramePosition;
 
+    [SerializeField] private GameObject pillsPrefab;
 
     public float speed = 5f;
 
@@ -277,7 +278,7 @@ public class Player : MonoBehaviour, IResettable
                 if (dialogueManager != null)
                 {
                     ConsumeItem(index);
-                    dialogueManager.ShowDialogue("I don't feel soo good");
+
                     GameManager gameManager = FindObjectOfType<GameManager>();
                     if (gameManager != null)
                     {
@@ -355,6 +356,8 @@ public class Player : MonoBehaviour, IResettable
 
 
         inventory.Clear();
+
+        inventory.Add(pillsPrefab);
         UpdateInventoryUI();
 
         Debug.Log("Player reset to starting position, inventory cleared, and camera aligned with frame.");

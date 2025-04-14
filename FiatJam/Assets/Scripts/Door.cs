@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : Interactable
+public class Door : Interactable, IResettable
 {
     public Door doorTo;
     public Transform centerCamera;
@@ -45,5 +45,10 @@ public class Door : Interactable
         }
         yield return new WaitForSeconds(0.25f);
         doorTo.Close();
+    }
+
+
+    public void ResetObject() {
+        Close();
     }
 }

@@ -435,9 +435,12 @@ public class Microwave : Interactable, IResettable
         isCooking = false;
         remainingTime = 0f;
 
+
+
         if (timerText != null)
         {
             timerText.text = "";
         }
+        UpdateMicrowaveDisplay();
     }
 }

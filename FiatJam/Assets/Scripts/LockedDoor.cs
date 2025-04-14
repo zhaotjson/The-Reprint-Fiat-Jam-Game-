@@ -43,4 +43,8 @@ public class LockedDoor : Door
             Debug.LogWarning("Player object not found.");
         }
     }
+
+
+
+
 }
