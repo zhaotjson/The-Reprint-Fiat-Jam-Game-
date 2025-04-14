@@ -43,6 +43,8 @@ public class Player : MonoBehaviour, IResettable
 
     [SerializeField] private Vector3 startingPosition;
 
+    [SerializeField] private AudioSource hopAudioSource;
+
     void Start()
     {
 
@@ -113,10 +115,20 @@ public class Player : MonoBehaviour, IResettable
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
                 rb.AddForce(new Vector2(-1, 1) * speed, ForceMode2D.Impulse);
                 sprite.flipX = true;
+
+                if (!hopAudioSource.isPlaying) {
+                    hopAudioSource.pitch = Random.Range(0.9f, 1.1f);
+                    hopAudioSource.Play();
+                }
             }
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
                 rb.AddForce(new Vector2(1, 1) * speed, ForceMode2D.Impulse);
                 sprite.flipX = false;
+
+                if (!hopAudioSource.isPlaying) {
+                    hopAudioSource.pitch = Random.Range(0.9f, 1.1f);
+                    hopAudioSource.Play();
+                }
             }
         }
 

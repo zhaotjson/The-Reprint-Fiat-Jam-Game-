@@ -9,6 +9,8 @@ public class PostIt : Interactable, IResettable
     [SerializeField, TextArea] private string postItText;
 
     [SerializeField] private TMP_Text postItTextComponent;
+
+    [SerializeField] private AudioSource postItSound;
     private void Start()
     {
 
@@ -23,6 +25,12 @@ public class PostIt : Interactable, IResettable
     {
         if (postItCanvas != null)
         {
+
+            if (!postItSound.isPlaying) {
+                    postItSound.pitch = Random.Range(0.9f, 1.1f);
+                    postItSound.Play();
+            }
+
             postItCanvas.SetActive(true);
 
             if (postItTextComponent != null)

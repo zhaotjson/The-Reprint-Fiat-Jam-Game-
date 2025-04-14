@@ -6,16 +6,14 @@ Other sound files have self explanatory names.
 ## ===== Sounds Checklist ======
 
 Background: 
-- Soft beeping from counter (should not be too obnoxious)
+- Soft beeping from counter - last 10 seconds (should not be too obnoxious)
 
 Movement:
 - Hopping sound
 - Hopping sound w/ ladder
-  - w/ grunting
 
 Inventory:
 - Putting item in inventory
-- Hovering over item
 
 Painting:
 - Interacting w/ painting
@@ -32,9 +30,6 @@ Microwave:
 - Opening/closing door
 
 Vending Machine:
-- Item dropping
-  - Ramen
-  - Burger
 - Opening Vending Machine doors
 
 Gun:
@@ -48,11 +43,22 @@ Poison Pills:
 - pills pinging against pill bottle
 
 Money:
-- Cash noises
+- Cash noises (?)
 
 Elevator:
 - Button beeping
 - doors opening/closing
 - elevator pinging
 
-  
+Ladder:
+- Placing ladder down
+
+Glass:
+- Glass breaking
+
+Death Screen Text:
+- Uh
+
+UI General:
+- Hover over button
+- Click Button

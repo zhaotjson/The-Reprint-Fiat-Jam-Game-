@@ -7,6 +7,8 @@ public class Painting : Interactable, IResettable
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private string dialogueMessage = "Oh, there's a keycard behind this painting.";
 
+    [SerializeField] private AudioSource paintingSqueek;
+
     public int totalTaken = 0;
 
     protected override void Start()
@@ -22,6 +24,11 @@ public class Painting : Interactable, IResettable
             Player player = playerObject.GetComponent<Player>();
             if (player != null)
             {
+
+                if (!paintingSqueek.isPlaying) {
+                    paintingSqueek.pitch = Random.Range(0.9f, 1.1f);
+                    paintingSqueek.Play();
+                }
 
                 if (totalTaken < 1)
                 {
