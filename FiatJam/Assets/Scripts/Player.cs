@@ -74,18 +74,20 @@ public class Player : MonoBehaviour, IResettable
         /*
 
             TESTING PURPOSES, REMOVE LATER
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+
+                GameManager gameManager = FindObjectOfType<GameManager>();
+                if (gameManager != null)
+                {
+                    gameManager.ResetGame();
+                }
+            }
+
 
 
         */
-        if (Input.GetKeyDown(KeyCode.R))
-        {
 
-            GameManager gameManager = FindObjectOfType<GameManager>();
-            if (gameManager != null)
-            {
-                gameManager.ResetGame();
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {

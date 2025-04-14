@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaceableLadder : Interactable
+public class PlaceableLadder : Interactable, IResettable
 {
     [SerializeField] private GameObject ladderObject;
     [SerializeField] private Vector3 playerTargetPosition;
@@ -100,6 +100,18 @@ public class PlaceableLadder : Interactable
             {
                 EIndicator.enabled = false;
             }
+        }
+    }
+
+
+    public void ResetObject()
+    {
+        Debug.Log("Resetting PlaceableLadder.");
+        isLadderPlaced = false;
+
+        if (ladderObject != null)
+        {
+            ladderObject.SetActive(false);
         }
     }
 }
