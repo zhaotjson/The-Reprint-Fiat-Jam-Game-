@@ -22,8 +22,6 @@ Painting:
 
 Printer: 
 - Scanning Noise
-- Door opening
-- Stepping out of printer
 
 Notepad:
 - Interacting w/ notepad
