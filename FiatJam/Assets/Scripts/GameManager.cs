@@ -57,6 +57,10 @@ public class GameManager : MonoBehaviour
             case "pill":
                 message += "Successfully tested poisoned pills. \n Displayed great results of use. \n";
                 break;
+
+            case "credits":
+                message += "Unfortunately our last test subject escaped. \n However, that does not stop us from continuing our tests. \n";
+                break;
             case "default":
             default:
                 message += "Successfully tested laser weapon.\n Weapon has great promise for future use. \n";

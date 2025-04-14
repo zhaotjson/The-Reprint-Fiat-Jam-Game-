@@ -1,27 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Escape : Interactable
 {
-    [SerializeField] private string victorySceneName = "VictoryScene";
+    [SerializeField] private GameObject creditsCanvas;
+    [SerializeField] private RectTransform creditsText;
+    [SerializeField] private float scrollSpeed = 50f;
+    [SerializeField] private float watchTime = 15f;
+
+    private Vector2 initialPosition;
+
+    void Start()
+    {
+        base.Start();
+        if (creditsCanvas != null)
+        {
+            creditsCanvas.SetActive(false);
+        }
+
+        if (creditsText != null)
+        {
+            initialPosition = creditsText.anchoredPosition;
+        }
+    }
 
     public override void Interact()
     {
-        Debug.Log("Escape triggered! Loading victory scene...");
-        LoadVictoryScene();
+        if (creditsCanvas != null && creditsText != null)
+        {
+            StopAllCounters();
+            creditsCanvas.SetActive(true);
+            StartCoroutine(ScrollCredits());
+        }
     }
 
-    private void LoadVictoryScene()
+    private IEnumerator ScrollCredits()
     {
-        if (!string.IsNullOrEmpty(victorySceneName))
+
+        float elapsedTime = 0f;
+
+
+        while (elapsedTime < watchTime)
         {
-            SceneManager.LoadScene(victorySceneName);
+            creditsText.anchoredPosition -= Vector2.up * scrollSpeed * Time.deltaTime;
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
-        else
+
+
+        creditsText.anchoredPosition = new Vector2(creditsText.anchoredPosition.x, -creditsText.rect.height);
+
+
+
+        creditsCanvas.SetActive(false);
+
+
+        creditsText.anchoredPosition = initialPosition;
+
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
         {
-            Debug.LogWarning("Victory scene name is not set.");
+            gameManager.ResetGame("credits");
         }
+    }
+
+    private void StopAllCounters()
+    {
+        countDown[] counters = FindObjectsOfType<countDown>();
+        foreach (countDown counter in counters)
+        {
+            counter.StopCounter();
+        }
+
+        Debug.Log("All counters have been stopped.");
     }
 }

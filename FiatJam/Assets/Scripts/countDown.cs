@@ -41,6 +41,12 @@ public class countDown : MonoBehaviour, IResettable
         }
     }
 
+    public void StopCounter()
+    {
+        StopAllCoroutines();
+        Debug.Log("Countdown stopped.");    
+    }
+
 
     public void ResetObject()
     {
