@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class countDown : MonoBehaviour, IResettable
 {
@@ -10,6 +11,9 @@ public class countDown : MonoBehaviour, IResettable
     [SerializeField] private TMP_Text countdownText;
 
     private float initialTime = 60.0f;
+
+    [SerializeField] private AudioSource laserChargeAudioSource;
+    [SerializeField] private AudioSource laserFireAudioSource;
 
     void Start()
     {
@@ -29,11 +33,17 @@ public class countDown : MonoBehaviour, IResettable
     {
         while (timeLeft > 0)
         {
+            if (laserChargeAudioSource != null && timeLeft <= 6.0f && !laserChargeAudioSource.isPlaying) {
+                laserChargeAudioSource.Play();
+            }
             yield return new WaitForSeconds(1.0f);
             timeLeft -= 1.0f;
         }
 
-
+        if (laserChargeAudioSource != null) {
+            laserChargeAudioSource.Stop();
+            laserFireAudioSource.Play();
+        }
         GameManager gameManager = FindObjectOfType<GameManager>();
         if (gameManager != null)
         {
