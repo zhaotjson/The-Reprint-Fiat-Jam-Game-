@@ -14982,7 +14982,7 @@ MonoBehaviour:
   creditsCanvas: {fileID: 300333710}
   creditsText: {fileID: 543351037}
   scrollSpeed: -100
-  watchTime: 10
+  watchTime: 15
 --- !u!61 &1577275452
 BoxCollider2D:
   m_ObjectHideFlags: 0
