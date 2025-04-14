@@ -31,6 +31,8 @@ public class Microwave : Interactable, IResettable
     public float remainingTime = 0f;
 
     [SerializeField] private TMP_Text timerText;
+    private Coroutine cookingCoroutine;
+
 
 
 
@@ -348,12 +350,9 @@ public class Microwave : Interactable, IResettable
 
     public void StartCooking()
     {
-
         DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
         if (microwaveItem == null)
         {
-
-
             if (dialogueManager != null)
             {
                 dialogueManager.ShowDialogue("Hmmm, nothing to cook here");
@@ -373,8 +372,9 @@ public class Microwave : Interactable, IResettable
             dialogueManager.ShowDialogue("I don't think this will finish in time. Maybe the next person can use it.");
         }
         isCooking = true;
-        StartCoroutine(CookingTimer());
+        cookingCoroutine = StartCoroutine(CookingTimer());
     }
+
 
     private IEnumerator CookingTimer()
     {
@@ -435,12 +435,17 @@ public class Microwave : Interactable, IResettable
         isCooking = false;
         remainingTime = 0f;
 
-
+        if (cookingCoroutine != null)
+        {
+            StopCoroutine(cookingCoroutine);
+            cookingCoroutine = null;
+        }
 
         if (timerText != null)
         {
             timerText.text = "";
         }
+
         UpdateMicrowaveDisplay();
     }
 }

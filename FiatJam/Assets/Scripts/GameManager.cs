@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour
         if (resetCanvas != null)
         {
             resetCanvas.SetActive(false);
+            
         }
+        Screen.SetResolution(1920, 1080, true);
 
     }
 

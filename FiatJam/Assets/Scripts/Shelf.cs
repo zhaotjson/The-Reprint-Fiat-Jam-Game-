@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shelf : Interactable, IResettable
 {
     [SerializeField] private GameObject itemPrefab; 
-    [SerializeField] private string dialogueMessage = "Hmmm, there's three dollars here. I should take it."; 
+    [SerializeField] private string dialogueMessage = "Hmmm, there's a dollar here. I should take it."; 
 
     public int totalTaken = 0;
 
@@ -25,7 +25,7 @@ public class Shelf : Interactable, IResettable
                 int itemsAdded = 0;
 
 
-                while (totalTaken < 3 && itemsAdded < 3)
+                while (totalTaken < 1 && itemsAdded < 1)
                 {
                     bool added = player.AddToInventory(itemPrefab);
                     if (added)
