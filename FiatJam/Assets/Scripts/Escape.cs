@@ -7,7 +7,7 @@ public class Escape : Interactable
     [SerializeField] private GameObject creditsCanvas;
     [SerializeField] private RectTransform creditsText;
     [SerializeField] private float scrollSpeed = 50f;
-    [SerializeField] private float watchTime = 15f;
+    [SerializeField] private float watchTime = 23f;
 
     private Vector2 initialPosition;
 
