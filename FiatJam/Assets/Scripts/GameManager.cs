@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
 
 
         textSoundSource.Stop();
+        printerSoundSource.Stop();
+
 
         if (resetCanvas != null)
         {
