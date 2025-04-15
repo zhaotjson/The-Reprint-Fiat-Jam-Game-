@@ -7,6 +7,8 @@ public class PlaceableLadder : Interactable, IResettable
     [SerializeField] private GameObject ladderObject;
     [SerializeField] private Vector3 playerTargetPosition;
 
+    [SerializeField] private AudioSource LadderPlaceSound;
+
     private bool isLadderPlaced = false;
 
     protected override void Start()
@@ -46,6 +48,10 @@ public class PlaceableLadder : Interactable, IResettable
                         isLadderPlaced = true;
                         player.speed = 5f;
                         Debug.Log("Ladder placed successfully!");
+
+                        if (!LadderPlaceSound.isPlaying) {
+                            LadderPlaceSound.Play();
+                        }
                     }
                     else
                     {
