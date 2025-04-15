@@ -11,6 +11,8 @@ public class Escape : Interactable
 
     private Vector2 initialPosition;
 
+    [SerializeField] private AudioSource creditsAudioSource;
+
     void Start()
     {
         base.Start();
@@ -32,6 +34,10 @@ public class Escape : Interactable
             StopAllCounters();
             creditsCanvas.SetActive(true);
             StartCoroutine(ScrollCredits());
+            if (creditsAudioSource != null)
+            {
+                creditsAudioSource.Play();
+            }
         }
     }
 

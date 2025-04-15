@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private Coroutine typingCoroutine;
 
     [SerializeField] private AudioSource textSoundSource;
+    [SerializeField] private AudioSource printerSoundSource;
 
     void Start()
     {
@@ -21,7 +22,6 @@ public class GameManager : MonoBehaviour
         if (resetCanvas != null)
         {
             resetCanvas.SetActive(false);
-            
         }
         // Screen.SetResolution(1920, 1080, true);
 
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
             {
                 string message = GenerateResetMessage(player.subjectNum, resetType);
                 textSoundSource.Play();
+                printerSoundSource.Play();
 
 
                 if (typingCoroutine != null)
