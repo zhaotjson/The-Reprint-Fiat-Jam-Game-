@@ -30,12 +30,14 @@ public class GameManager : MonoBehaviour
     public void ResetGame(string resetType = "default")
     {
 
-
+        
+        Debug.Log("Here");
 
         if (resetCanvas != null && resetText != null)
         {
             Player player = FindObjectOfType<Player>();
 
+            Debug.Log("there");
             player.SetMovementEnabled(false);
             if (player != null)
             {
@@ -50,7 +52,8 @@ public class GameManager : MonoBehaviour
                 }
                 typingCoroutine = StartCoroutine(TypeMessage(message));
             }
-
+            
+            Debug.Log("Canvs set active");
             resetCanvas.SetActive(true);
         }
         else
