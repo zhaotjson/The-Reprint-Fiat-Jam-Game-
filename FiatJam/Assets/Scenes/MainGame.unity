@@ -6784,7 +6784,7 @@ MonoBehaviour:
     by Jason Jiang and Benjamin Man
 
 
-    Sound Design by Richemond :D
+    Sound Design by Richemond Shin
 
 
     Asset
@@ -10687,7 +10687,7 @@ MonoBehaviour:
   EIndicator: {fileID: 118508327}
   isInteractable: 0
   postItCanvas: {fileID: 1320771405}
-  postItText: "Code | Carrots | #\n    ?         3       74\n    3         4      
+  postItText: "Code | Carrots | #\n    ?          3      74\n    3         4      
     75\n    4         8       76\n    8         0       77\n    0         2      
     78\n    2         4       79\n"
   postItTextComponent: {fileID: 334781020}
