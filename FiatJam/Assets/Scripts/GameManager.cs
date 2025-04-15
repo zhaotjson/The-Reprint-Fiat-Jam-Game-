@@ -92,6 +92,10 @@ public class GameManager : MonoBehaviour
 
     public void PerformReset()
     {
+
+
+        textSoundSource.Stop();
+
         if (resetCanvas != null)
         {
             resetCanvas.SetActive(false);
