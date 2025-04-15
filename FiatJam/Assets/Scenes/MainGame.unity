@@ -15347,7 +15347,7 @@ MonoBehaviour:
   EIndicator: {fileID: 2057932404}
   isInteractable: 0
   postItCanvas: {fileID: 1320771405}
-  postItText: 'I tried entering 4 for the elevator code from subject 79, and it worked.
+  postItText: 'I tried entering 4 cause subject 79 saw 4 carrots, and it worked.
     It seems like the code is different each day.
 
 
